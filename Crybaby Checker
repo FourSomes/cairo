@@ -1,0 +1,28 @@
+import discord
+from discord.ext import commands
+
+# Initialize the Discord bot
+bot = commands.Bot(command_prefix='!')
+
+@bot.event
+async def on_ready():
+    print(f'Logged in as {bot.user.name}')
+
+@bot.command(name='link_wallet')
+async def link_wallet(ctx, wallet_address):
+    """
+    Command to link a StarkNet wallet to a Discord user.
+    Example: !link_wallet <wallet_address>
+    """
+    # Perform additional validation or checks for crybaby detection
+    is_crybaby = crybaby_detection(ctx.message.content)
+
+    if is_crybaby:
+        await ctx.send(f'Suspicious behavior detected. Crybaby linked: {wallet_address}')
+        # Perform actions like storing the linked crybaby and wallet_address
+        # You may want to store this information securely or report it to moderators
+
+@bot.command(name='check_crybabies')
+async def check_crybabies(ctx):
+    """
+    Command to check for
